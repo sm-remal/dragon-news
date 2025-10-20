@@ -11,7 +11,7 @@ const Categories = () => {
     return (
         <div>
             <h2 className='font-bold text-gray-700'>All Categories ({allCategories.length})</h2>
-            <div className='flex flex-col gap-3 mt-5'>
+            <div className='flex flex-row flex-wrap md:flex-col gap-3 mt-5'>
                 {
                     allCategories.map(category => 
                     <NavLink key={category.id} 

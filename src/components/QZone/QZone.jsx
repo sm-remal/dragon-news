@@ -9,14 +9,14 @@ const QZone = () => {
         <div>
             <div className='mt-7 bg-base-200 px-3 py-4'>
                 <h2 className='font-semibold mb-5'>Q-Zone</h2>
-                <div className='space-y-5'>
+                <div className='space-y-5 flex flex-col justify-center'>
                     <img src={swimming} alt="" />
                     <img src={classImg} alt="" />
                     <img src={playground} alt="" />
                 </div>
             </div>
             <div className='px-3 py-5'>
-                <img src={bgImg} alt="" />
+                <img src={bgImg} alt="" className='w-full' />
             </div>
         </div>
     );

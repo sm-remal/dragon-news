@@ -22,7 +22,7 @@ const CategoryNews = () => {
 
     }, [data, id])
     return (
-        <div>
+        <div className='mt-8 md:mt-0'>
             {/* <h2>Total News - <span className='text-secondary mb-5'>{categoryNews.length}</span></h2> */}
             <h2 className='text-lg text-gray-600 font-bold'>Dragon News Home</h2>
             <div className='grid grid-cols-1 gap-5 mt-4'>

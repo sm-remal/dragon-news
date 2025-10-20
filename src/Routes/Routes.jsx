@@ -7,11 +7,15 @@ import Register from "../pages/Register/Register";
 import AuthLayout from "../layouts/AuthLayout";
 import NewsDetails from "../pages/NewsDetails/NewsDetails";
 import PrivateRoute from "./PrivateRoute";
+import Spinner from "../components/Spinner/Spinner";
+import About from "../pages/About/About";
+import Career from "../pages/Career/Career";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: HomeLayout,
+    hydrateFallbackElement: <Spinner></Spinner>,
     children: [
         {
             path: "/",
@@ -44,6 +48,15 @@ export const router = createBrowserRouter([
       <NewsDetails></NewsDetails>
     </PrivateRoute>,
     loader: () => fetch("/news.json")
+  },
+  {
+    path: "about",
+    Component: About
+  },
+  {
+    path: "career",
+    Component: Career,
   }
+
 ]);
 
