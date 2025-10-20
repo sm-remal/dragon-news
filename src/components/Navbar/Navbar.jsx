@@ -2,9 +2,13 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router';
 import userIcon from "../../assets/user.png"
 import { AuthContext } from '../../context/AuthContext';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router';
 
 
 const Navbar = () => {
+
+    const navigate = useNavigate()
 
     const { user, signOutUser } = useContext(AuthContext)
 
@@ -14,6 +18,8 @@ const Navbar = () => {
         signOutUser()
             .then(result => {
                 console.log(result)
+                toast.success("Sign Out Successfully !!")
+                navigate("/auth/login")
             })
             .catch(error => {
                 console.log(error)

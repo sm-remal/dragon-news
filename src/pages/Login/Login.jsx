@@ -4,6 +4,7 @@ import { AuthContext } from '../../context/AuthContext';
 import { getFriendlyMessage } from '../../ErrorMessage/ErrorMessage';
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const [success, setSuccess] = useState(false)
@@ -34,8 +35,8 @@ const Login = () => {
                 console.log(result.user);
                 setSuccess(true)
                 event.target.reset();
-                if (!result.user.emailVerified) {
-                    alert("Please verify your email address")
+                if (result.user.emailVerified === false) {
+                    toast.error("Please verify your email address")
                 }
                 navigate(`${location.state ? location.state : "/"}`)
             })
@@ -49,9 +50,9 @@ const Login = () => {
     // Google and GitHub SignIn
     const handleLoginWithGoogle = () =>{
         loginWithGoogle()
-        .then(result => {
-            console.log(result.user);
+        .then(() => {
             setSuccess(true)
+            toast.success("Login successful 🎉")
             navigate(`${location.state ? location.state : "/"}`)
         })
         .catch(error => {
@@ -62,9 +63,10 @@ const Login = () => {
 
     const handleLoginWithGitHub = () => {
         loginWithGitHub()
-        .then(result => {
+        .then((result) => {
             console.log(result.user)
             setSuccess(true)
+            toast.success("Login successful 🎉")
             navigate(`${location.state ? location.state : "/"}`)
         })
         .catch(error => {
@@ -79,7 +81,7 @@ const Login = () => {
         forgetPassword(email)
             .then(result => {
                 console.log(result)
-                alert("email sent")
+                toast("Password reset email sent! Check your inbox 💌")
             })
             .catch(error => {
                 console.log(error.message)

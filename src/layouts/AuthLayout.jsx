@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar/Navbar';
 import { Outlet, useNavigation } from 'react-router';
 import Spinner from '../components/Spinner/Spinner';
+import { ToastContainer } from 'react-toastify';
 
 const AuthLayout = () => {
 
@@ -20,6 +21,7 @@ const AuthLayout = () => {
                 <Outlet></Outlet>
             </main>
             }
+            <ToastContainer position="top-center" autoClose={4000} />
         </div>
     );
 };

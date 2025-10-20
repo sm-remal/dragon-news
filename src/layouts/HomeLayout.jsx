@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar/Navbar';
 import LeftAside from '../components/homeLayout/LeftAside';
 import RightAside from '../components/homeLayout/RightAside';
 import Spinner from '../components/Spinner/Spinner';
+  import { ToastContainer } from 'react-toastify';
 
 const HomeLayout = () => {
 
@@ -41,7 +42,7 @@ const HomeLayout = () => {
                     </main>
             }
 
-
+            <ToastContainer position="top-center" autoClose={4000} />
         </div>
     );
 };

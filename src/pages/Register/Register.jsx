@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { getFriendlyMessage } from '../../ErrorMessage/ErrorMessage';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 
 const Register = () => {
@@ -52,20 +53,21 @@ const Register = () => {
             .then((result) => {
                 console.log("User created:", result.user);
                 setSuccess(true);
+                toast.success("Registration successful 🌟")
                 event.target.reset();
 
                 // Profile Update
                 updateUserProfile({ displayName: name, photoURL: photoURL })
                     .then(() => {
                         // console.log("Profile updated");
-                        alert("Profile Update")
+                        // toast.success("Great job! Your profile has been updated successfully. 🌟")
 
                         // Verification Email
                         verifyEmail()
                             .then(() => {
                                 console.log("Verification email sent");
-                                alert("Please login to your email and verify your email address.")
-                                navigate("/auth/login"); // Navigate after email sent
+                                // toast.success("Please login to your email and verify your email address 📧")
+                                navigate("/"); // Navigate after email sent
                             })
                             .catch((error) => {
                                 console.log("Email verification error:", error);
